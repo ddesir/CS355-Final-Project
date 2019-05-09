@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Game List</string>
+    <string name="app_name">Game Mash-Up</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
-    <string name="games_searcher">Game List</string>
+    <string name="games_searcher">Game Mash-Up</string>
     <string name="username">Username</string>
 </resources>

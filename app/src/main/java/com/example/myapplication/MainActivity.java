@@ -2,8 +2,8 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,7 +12,7 @@ import android.widget.VideoView;
 class LoginManager {
     /** Are the given user name and password known to the system? */
     public static boolean isKnownUser(String name, String psswd) {
-        if(name.equals("test") && psswd.equals("passwd")) {
+        if(name.equals("test") && psswd.equals("test")) {
             return true;
         }
         return false;
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         videoview.setVideoURI(uri);
         videoview.start();
     }
+
     public void validateUser(View view){
         Intent intent = new Intent(this, WelcomeActivity.class);
         EditText name = findViewById(R.id.editTextUserName);
