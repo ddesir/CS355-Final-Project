@@ -5,18 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <include layout="@layout/my_video_background" />
 
     <EditText
         android:id="@+id/editTextUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="8dp"
         android:hint="@string/username"
         app:layout_constraintBottom_toTopOf="@+id/editTextPsswd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="#F0FFFF"
+        android:textColor="#F0FFFF"/>
 
     <EditText
         android:id="@+id/editTextPsswd"
@@ -24,12 +27,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="68dp"
         android:hint="@string/password"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="#F0FFFF"
+        android:textColor="#F0FFFF"/>
 
     <Button
         android:id="@+id/button"
@@ -40,6 +45,8 @@
         android:layout_marginBottom="88dp"
         android:onClick="validateUser"
         android:text="@string/login"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#F0FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -53,12 +60,44 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="150dp"
+        android:contentDescription="Title"
         android:text="@string/games_searcher"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#F0FFFF"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:fontFamily="cursive"
         app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.975" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="39dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="212dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPsswd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/lock" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="47dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="256dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/login" />
 
 </android.support.constraint.ConstraintLayout>
