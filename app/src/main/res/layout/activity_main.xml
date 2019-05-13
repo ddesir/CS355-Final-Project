@@ -9,8 +9,8 @@
     <include
         android:id="@+id/include3"
         layout="@layout/my_video_background"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="551dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-179dp" />
 
 
     <EditText
@@ -104,7 +104,7 @@
         app:srcCompat="@drawable/login" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/signOutButton"
         style="@android:style/Widget.Material.Light.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,11 +112,23 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="235dp"
         android:backgroundTint="@color/colorAccent"
-        android:text="Register"
+        android:text="Sign out"
         android:textColor="#F0FFFF"
         app:layout_constraintBottom_toBottomOf="@+id/include3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="164dp"
+        app:layout_constraintBottom_toBottomOf="@+id/include3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
