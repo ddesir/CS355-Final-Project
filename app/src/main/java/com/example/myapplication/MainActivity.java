@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         ((EditText) findViewById(R.id.editTextUserName)).setText("");
         ((EditText) findViewById(R.id.editTextPsswd)).setText("");
+        VideoView videoview = findViewById(R.id.videoView);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video3);
+        videoview.setVideoURI(uri);
+        videoview.start();
     }
 
     public void validateUser(View view){
