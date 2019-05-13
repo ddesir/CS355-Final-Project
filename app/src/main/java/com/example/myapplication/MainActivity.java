@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
         videoview.start();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((EditText) findViewById(R.id.editTextUserName)).setText("");
+        ((EditText) findViewById(R.id.editTextPsswd)).setText("");
+    }
+
     public void validateUser(View view){
         Intent intent = new Intent(this, WelcomeActivity.class);
         EditText name = findViewById(R.id.editTextUserName);
