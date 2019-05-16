@@ -161,11 +161,14 @@ public class MainActivity extends AppCompatActivity {
             profileImage.setVisibility(View.VISIBLE);
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
+            findViewById(R.id.activity).setVisibility(View.VISIBLE);
         } else {
             displayName.setVisibility(View.GONE);
             profileImage.setVisibility(View.GONE);
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_button).setVisibility(View.GONE);
+            findViewById(R.id.activity).setVisibility(View.GONE);
+
         }
     }
 
@@ -187,7 +190,6 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -195,5 +197,11 @@ public class MainActivity extends AppCompatActivity {
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video3);
         videoview.setVideoURI(uri);
         videoview.start();
+    }
+
+    public void startActivity(View view){
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        startActivity(intent);
+        //finish();
     }
 }
