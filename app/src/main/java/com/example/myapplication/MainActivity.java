@@ -162,9 +162,11 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
             findViewById(R.id.activity).setVisibility(View.VISIBLE);
+            findViewById(R.id.imageView).setVisibility(View.GONE);
         } else {
             displayName.setVisibility(View.GONE);
             profileImage.setVisibility(View.GONE);
+            findViewById(R.id.imageView).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_button).setVisibility(View.GONE);
             findViewById(R.id.activity).setVisibility(View.GONE);
