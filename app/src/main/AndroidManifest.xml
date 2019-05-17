@@ -17,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.loginmanager.WelcomeActivity" />
+        <activity android:name=".Listings"/>
+        <activity android:name="com.example.WelcomeActivity" />
         <activity android:name=".WelcomeActivity" />
     </application>
 
