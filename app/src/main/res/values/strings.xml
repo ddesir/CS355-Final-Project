@@ -5,4 +5,8 @@
     <string name="games_searcher">Game A-Pedia</string>
     <string name="username">Username</string>
     <string name="games">Games</string>
+    <string name="sign_out">Sign out</string>
+    <string name="go">GO</string>
+    <string name="logo">Logo</string>
+    <string name="profile_picture">Profile Picture</string>
 </resources>

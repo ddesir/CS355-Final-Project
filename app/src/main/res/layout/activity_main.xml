@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,7 +24,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:contentDescription="Title"
+        android:contentDescription="@string/logo"
         android:src="@drawable/game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:contentDescription="@string/profile_picture"
         android:id="@+id/profilePic"
         android:layout_width="177dp"
         android:layout_height="185dp"
@@ -71,7 +73,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="235dp"
         android:backgroundTint="@color/colorAccent"
-        android:text="Sign out"
+        android:text="@string/sign_out"
         android:textColor="#F0FFFF"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/include3"
@@ -104,7 +106,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/colorAccent"
         android:onClick="startActivity"
-        android:text="GO"
+        android:text="@string/go"
         android:textColor="#F0FFFF"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/include3"
