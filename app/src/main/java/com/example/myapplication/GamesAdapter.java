@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.Rating;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 
 public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> {
@@ -65,7 +63,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
             String Name;
             String Type;
             String[] PopList = gameList.split("-");
-            Name = PopList[0] + "\t\t\t\t\t\t\t" + PopList[1] + "\n$" + PopList[2] + "\n " + Stars(Integer.parseInt(PopList[3]));
+            Name = PopList[0] + "\n" + PopList[1] + "\n$" + PopList[2] + "\n" + Stars(Integer.parseInt(PopList[3]));
             Type = PopList[1];
 
             ImageView imageView = viewHolder.Icon;
