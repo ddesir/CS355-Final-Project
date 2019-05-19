@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         pDialog.show();
 
     }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+                assert account != null;
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
@@ -170,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_button).setVisibility(View.GONE);
             findViewById(R.id.activity).setVisibility(View.GONE);
-
         }
     }
 
@@ -204,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
     public void startActivity(View view){
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
-        //finish();
     }
 
 }
