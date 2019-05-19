@@ -23,7 +23,7 @@ public class WelcomeActivity extends AppCompatActivity{
     public void Type(View view)
     {
         Intent i = new Intent(this, Listings.class);
-        i.putExtra("query", " select GameServers, count(distinct GameID) from Servers, DevInfo where Servers.ServerID=DevInfo.ServerID group by GameServers;");
+        i.putExtra("query", "select GameServers, count(distinct GameID) from Servers, DevInfo where Servers.ServerID=DevInfo.ServerID group by GameServers;");
         startActivity(i);
     }
 }
