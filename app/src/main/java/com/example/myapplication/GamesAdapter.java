@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.Rating;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,21 +23,18 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView Name;
-        public TextView Type;
         public TextView GameServers;
-        public TextView DevName;
         public ImageView Icon;
         public ImageView Icon2;
+        public TextView DevName;
 
         public ViewHolder(View list) {
             super(list);
             Icon = list.findViewById(R.id.imageView);
             Name = list.findViewById(R.id.textView);
-            Type = list.findViewById(R.id.textView2);
-
             Icon2 = list.findViewById(R.id.imageView);
             GameServers = list.findViewById(R.id.textView);
-            DevName = list.findViewById(R.id.textView2);
+            DevName = list.findViewById(R.id.textView);
 
         }
     }
@@ -63,11 +61,11 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
             }
         }
 
-        if (count == 1) {
+        if (count == 3) {
             String Name;
             String Type;
             String[] PopList = gameList.split("-");
-            Name = PopList[0];
+            Name = PopList[0] + "\t\t\t\t\t\t\t" + PopList[1] + "\n$" + PopList[2] + "\n " + Stars(Integer.parseInt(PopList[3]));
             Type = PopList[1];
 
             ImageView imageView = viewHolder.Icon;
@@ -167,17 +165,20 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
 
             TextView textView = viewHolder.Name;
             textView.setText(Name);
-            TextView textView2 = viewHolder.Type;
-            textView2.setText(Type);
+            TextView textView2 = viewHolder.Name;
+            textView2.setText(Name);
+            TextView textView3 = viewHolder.Name;
+            textView3.setText(Name);
+            TextView textView4 = viewHolder.Name;
+            textView4.setText(Name);
         }
 
         else if (count == 1) {
             String GameServers;
-            String DevName;
             ImageView imageView = viewHolder.Icon2;
 
-            String[] PopList = gameList.split("/");
-            GameServers = PopList[1];
+            String[] PopList = gameList.split("-");
+            GameServers = PopList[0] + ":\t" + PopList[1];
 
             switch (GameServers) {
                 case "EA/Origin":
@@ -199,6 +200,42 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
             TextView textView = viewHolder.GameServers;
             textView.setText(GameServers);
         }
+    }
+
+    public static String Stars (int rating){
+        // `\u2605` = filled star, `\u2606` = empty star
+        String[] stars = {
+                "\u2605\u2606\u2606\u2606\u2606",
+                "\u2605\u2605\u2606\u2606\u2606",
+                "\u2605\u2605\u2605\u2606\u2606",
+                "\u2605\u2605\u2605\u2605\u2606",
+                "\u2605\u2605\u2605\u2605\u2605",
+                "\u2606\u2606\u2606\u2606\u2606"
+        };
+
+        String starRating = "";
+
+        switch (rating) {
+            case 1:
+                starRating = stars[0];
+                break;
+            case 2:
+                starRating = stars[1];
+                break;
+            case 3:
+                starRating = stars[2];
+                break;
+            case 4:
+                starRating = stars[3];
+                break;
+            case 5:
+                starRating = stars[4];
+                break;
+            default:
+                starRating = stars[5];
+                break;
+        }
+        return starRating;
     }
 
     @Override
