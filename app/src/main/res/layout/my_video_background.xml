@@ -12,6 +12,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:importantForAccessibility="no"
+        />
 
 </RelativeLayout>

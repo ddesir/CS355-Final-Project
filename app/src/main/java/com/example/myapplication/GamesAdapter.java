@@ -59,7 +59,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
             String Name;
             String Type;
             String[] PopList = gameList.split("-");
-            Name = PopList[0] + "\n" + PopList[1] + "\n$" + PopList[2] + "\n" + Stars(Integer.parseInt(PopList[3]));
+            Name = PopList[0] + "\n" + PopList[1] + "\n" + Stars(Integer.parseInt(PopList[3])) + "\n$" + PopList[2];
             Type = PopList[1];
 
             ImageView imageView = viewHolder.Icon;
