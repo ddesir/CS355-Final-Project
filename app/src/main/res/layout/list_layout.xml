@@ -22,6 +22,7 @@
         android:layout_marginTop="15dp"
         android:paddingBottom="10dp"
         style="?android:attr/listSeparatorTextViewStyle"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:minHeight="50dp"/>
 
 </LinearLayout>
