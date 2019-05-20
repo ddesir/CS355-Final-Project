@@ -24,16 +24,12 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
         public TextView GameServers;
         public ImageView Icon;
         public ImageView Icon2;
-        public TextView DevName;
-
         public ViewHolder(View list) {
             super(list);
             Icon = list.findViewById(R.id.imageView);
-            Name = list.findViewById(R.id.textView);
             Icon2 = list.findViewById(R.id.imageView);
+            Name = list.findViewById(R.id.textView);
             GameServers = list.findViewById(R.id.textView);
-            DevName = list.findViewById(R.id.textView);
-
         }
     }
 
@@ -118,34 +114,34 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
                     imageView.setImageResource(R.drawable.military);
                     break;
                 case "Simulation":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.single_player);
                     break;
                 case "Realistic":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.co_op);
                     break;
                 case "MMORPG":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.rpg);
                     break;
                 case "Massively Multiplayer":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.mmo);
                     break;
                 case "Demons":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.gore);
                     break;
                 case "Zombies":
                     imageView.setImageResource(R.drawable.zombies);
                     break;
                 case "Hack and Slash":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.adventure);
                     break;
                 case "Turned-Based Combat":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.fighting);
                     break;
                 case "JPRG":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.boardgaming);
                     break;
                 case "Survival":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.post_apocalyptic);
                     break;
                 case "Team Based Shooter":
                     imageView.setImageResource(R.drawable.team_based_shooter);
@@ -154,10 +150,10 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
                     imageView.setImageResource(R.drawable.music);
                     break;
                 case "Dance":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.dancing);
                     break;
                 case "Strategy":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.mmo);
                     break;
             }
 
@@ -173,30 +169,42 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
 
         else if (count == 1) {
             String GameServers;
-            ImageView imageView = viewHolder.Icon2;
+            String GameImage;
+            ImageView imageView = viewHolder.Icon;
 
             String[] PopList = gameList.split("-");
             GameServers = PopList[0] + ":\t" + PopList[1];
+            GameImage = PopList[0];
 
-            switch (GameServers) {
+            switch (GameImage) {
                 case "EA/Origin":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.ea);
                     break;
                 case "Battlenet":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.battlenet);
                     break;
                 case "Steam":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.steam);
                     break;
                 case "Uplay":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.uplay);
                     break;
                 case "Epic Games":
-                    imageView.setImageResource(R.drawable.racing);
+                    imageView.setImageResource(R.drawable.epicgames);
                     break;
             }
             TextView textView = viewHolder.GameServers;
             textView.setText(GameServers);
+        }
+        else if(count == 0){
+            String Name;
+            ImageView imageView1 = viewHolder.Icon2;
+            String[] PopList = gameList.split("-");
+            Name = PopList[0];
+            imageView1.setImageResource(R.drawable.controller);
+            TextView textView = viewHolder.Name;
+            textView.setText(Name);
+
         }
     }
 
