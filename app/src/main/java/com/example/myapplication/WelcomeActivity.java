@@ -16,7 +16,7 @@ public class WelcomeActivity extends AppCompatActivity{
     public void allGames(View view)
     {
         Intent i = new Intent(this, Listings.class);
-        i.putExtra("query","select Name,Type,Price,Rating from Listings;");
+        i.putExtra("query","select Name, Type, Price, Rating from Listings order by Name;");
         startActivity(i);
     }
 
