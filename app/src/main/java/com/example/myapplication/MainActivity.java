@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.database.SQLException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -29,6 +32,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -36,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressDialog pDialog;
     private GoogleSignInClient mGoogleSignInClient;
+
+    //
+    private DatabaseHelper mDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +85,22 @@ public class MainActivity extends AppCompatActivity {
                 signOut();
             }
         });
+
+        // Copy database to device
+
+        mDBHelper = new DatabaseHelper(this);
+
+        //Check exists database
+        File database = getApplicationContext().getDatabasePath(DatabaseHelper.DBNAME);
+        if(!database.exists()) {
+            mDBHelper.getReadableDatabase();
+            //Copy db
+            if(copyDatabase(this)) {
+                Toast.makeText(this, "Copied database successfully.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Error while copying database.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     /**
@@ -205,6 +233,26 @@ public class MainActivity extends AppCompatActivity {
     public void startActivity(View view){
         Intent intent = new Intent(this, WelcomeActivity.class);
         startActivity(intent);
+    }
+    private boolean copyDatabase(Context context) {
+        try {
+
+            InputStream inputStream = context.getAssets().open(DatabaseHelper.DBNAME);
+            String outFileName = DatabaseHelper.DBLOCATION + DatabaseHelper.DBNAME;
+            OutputStream outputStream = new FileOutputStream(outFileName);
+            byte[]buff = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buff)) > 0) {
+                outputStream.write(buff, 0, length);
+            }
+            outputStream.flush();
+            outputStream.close();
+            Log.w("MainActivity","DB copied");
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }
