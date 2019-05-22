@@ -13,23 +13,24 @@ public class WelcomeActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
     }
+    // Games View
     public void allGames(View view)
     {
         Intent i = new Intent(this, Listings.class);
         i.putExtra("query","select Name, Type, Price, Rating from Listings order by Name;");
         startActivity(i);
     }
-
+    // Games Servers View
     public void Type(View view)
     {
         Intent i = new Intent(this, Listings.class);
         i.putExtra("query", "select GameServers, count(distinct GameID) from Listings, DevInfo, Servers where Listings.DevID=DevInfo.DevId and Servers.ServerID=DevInfo.ServerID group by GameServers;");
         startActivity(i);
     }
-
+    // Platforms View
     public void platform(View view){
         Intent i = new Intent(this, Listings.class);
-        i.putExtra("query","select Name,Platform from Listings,DevInfo where Listings.DevID = DevInfo.DevID group by GameID;");
+        i.putExtra("query","select Name, Platform from Listings, DevInfo where Listings.DevID = DevInfo.DevID group by GameID;");
         startActivity(i);
     }
 }

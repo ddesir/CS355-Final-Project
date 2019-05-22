@@ -54,11 +54,12 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
                 count++;
             }
         }
-
+        // Games List View
         if (count == 3) {
             String Name;
             String Type;
             String[] PopList = gameList.split("-");
+            // Game Name, genre, Rating, Price
             Name = PopList[0] + "\n" + PopList[1] + "\n" + Stars(Integer.parseInt(PopList[3])) + "\n$" + PopList[2];
             Type = PopList[1];
 
@@ -166,14 +167,14 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
             TextView textView4 = viewHolder.Name;
             textView4.setText(Name);
         }
-
+        // Game Servers View
         else if (count == 1) {
             String GameServers;
             String GameImage;
             ImageView imageView = viewHolder.Icon;
 
             String[] PopList = gameList.split("-");
-            GameServers = PopList[0] + ":\t" + PopList[1];
+            GameServers = PopList[0] + ":\t" + PopList[1] + " games";
             GameImage = PopList[0];
 
             switch (GameImage) {
@@ -196,6 +197,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.ViewHolder> 
             TextView textView = viewHolder.GameServers;
             textView.setText(GameServers);
         }
+        // Developers View
         else if(count == 0){
             String Name;
             ImageView imageView1 = viewHolder.Icon2;
