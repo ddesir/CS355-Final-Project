@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.database.SQLException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -34,7 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -45,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressDialog pDialog;
     private GoogleSignInClient mGoogleSignInClient;
-
-    //
-    private DatabaseHelper mDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Copy database to device
 
-        mDBHelper = new DatabaseHelper(this);
+        //
+        DatabaseHelper mDBHelper = new DatabaseHelper(this);
 
         //Check exists database
         File database = getApplicationContext().getDatabasePath(DatabaseHelper.DBNAME);
