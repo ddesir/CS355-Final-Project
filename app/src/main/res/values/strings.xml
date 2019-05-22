@@ -9,4 +9,6 @@
     <string name="go">GO</string>
     <string name="logo">Logo</string>
     <string name="profile_picture">Profile Picture</string>
+    <string name="textview">TextView</string>
+    <string name="icon">icon</string>
 </resources>
